@@ -1,0 +1,15 @@
+[Unit]
+Description=Nly
+
+[Service]
+ExecStart=/var/www/nly/dist/server.js
+Restart=always
+User=nobody
+# Note Debian/Ubuntu uses 'nogroup', RHEL/Fedora uses 'nobody'
+Group=nogroup
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/var/www/nly/
+
+[Install]
+WantedBy=multi-user.target

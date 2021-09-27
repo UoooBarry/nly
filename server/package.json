@@ -20,6 +20,7 @@
     "prestart": "yarn build",
     "start": "node .",
     "dev": "nodemon src/server.ts",
+    "prod": "NODE_ENV=production pm2 start dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

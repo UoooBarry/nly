@@ -14,7 +14,7 @@ const getRecipe = async (id) => {
 }
 
 const rateRecipe = async (id, rating) => {
-  const response = await service.post(`/recipes/${id}/rate`, {
+  const response = await service.put(`/recipes/${id}`, {
     rating: rating
   });
   if (response.data.status !== 'ok') console.error("Contact barry!");

@@ -6,5 +6,6 @@ const service = axios.create({
 
 service.defaults.timeout = 10000;
 service.defaults.headers.post['Content-Type'] = 'application/json';
+service.defaults.headers.put['Content-Type'] = 'application/json';
 
 export default service;

@@ -37,8 +37,7 @@ router.put('/:id', (req, res) => {
     if (err) {
       res.json({ status: 'ok', payload: { message: err } });
     }
-    const newRecipe = Object.assign(recipe, req.body);
-    res.json({ status: 'ok', payload: { newRecipe } });
+    res.json({ status: 'ok', payload: { recipe } });
   });
 });
 

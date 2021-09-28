@@ -3,4 +3,7 @@ server/node_modules/**
 server/node_modules/
 client/node_modules/
 server/dist/**
+server/dist/
 server/.env
+server/nly-1.0.0.tgz
+artifacts/server.tgz

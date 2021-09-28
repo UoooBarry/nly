@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors';
 import './config/database';
 import seed from './data/seed';
 
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: false
 }));
+app.use(cors());
 
 const port = 3000; // default port to listen
 

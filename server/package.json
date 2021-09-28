@@ -4,6 +4,8 @@
   "main": "dist/server.js",
   "license": "MIT",
   "dependencies": {
+    "@types/cors": "^2.8.12",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.7"
@@ -23,7 +25,7 @@
     "prestart": "yarn build",
     "start": "node .",
     "dev": "nodemon src/server.ts",
-    "prod": "NODE_ENV=production pm2 start dist/server.js",
+    "prod": "NODE_ENV=production pm2 start dist/server.js --name nly",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

@@ -1,7 +1,0 @@
-all:
-  hosts:
-    207.148.95.3
-  children:
-      webservers:
-          hosts:
-             207.148.95.3

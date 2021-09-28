@@ -4,6 +4,7 @@
   hosts: webservers
   vars:
     server_dir: "/var/www/nly"
+    client_dir: "/var/www/html"
     user: "root"
     systemd_dir: "/etc/systemd/system"
   tasks:    
@@ -35,3 +36,20 @@
 
     - name: Start pm2
       shell: "cd {{server_dir}} && yarn prod"
+    
+    - name: Upload client
+      become: yes
+      copy:
+        src: "../artifacts/client.tgz"
+        dest: "{{client_dir}}"
+
+    - name: Extract client
+      become: yes
+      unarchive: 
+        src: "{{client_dir}}/client.tgz"
+        dest: "{{client_dir}}"
+        copy: no
+    
+    - name: Copy client files
+      become: yes
+      shell: "cp -a {{client_dir}}/dist/. {{client_dir}}"

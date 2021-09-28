@@ -4,7 +4,7 @@ import Recipe from './recipe';
 interface ICategory {
   _id: string;
   name: string;
-  recipes: Array<typeof Recipe>;
+  recipes: typeof Recipe[];
 }
 
 const schema = new Schema<ICategory>({

@@ -34,4 +34,13 @@ router.post('/', (req, res) => {
   })
 });
 
+router.put('/:id', (req, res) => {
+  Category.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, category) => {
+    if (err) {
+      res.json({ status: 'ok', payload: { message: err } });
+    }
+    res.json({ status: 'ok', payload: { category } });
+  });
+});
+
 export default router;

@@ -4,11 +4,11 @@
 
 椰青：1个
 
-![coconut](assets/coconut.jpeg)
+![coconut](https://raw.githubusercontent.com/UoooBarry/nly/recipes/assets/coconut.jpeg)
 
 文昌鸡: 半只
 
-![coconut](assets/chicken.jpeg)
+![coconut](https://raw.githubusercontent.com/UoooBarry/nly/recipes/assets/chicken.jpeg)
 
 红枣: 2-3个
 

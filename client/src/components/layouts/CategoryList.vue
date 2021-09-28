@@ -1,27 +1,27 @@
 <template>
   <nav class="menu">
-  <input id ="menu__toggle" type="checkbox" class='menu__toggle'/>
-  <label for="menu__toggle" class="menu__toggle-label">
-    <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
-      <path d='M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z' />
-    </svg>
-    <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
-      <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
-    </svg>
-  </label>
-  <ol class='menu__content'>
-    <li class="menu-item"><a href="/">主页</a></li>
-    <li class="menu-item" v-for="category in categories" :key="category._id">
-      <a href="#0">{{category.name}}</a>
-      <ol class="sub-menu" v-for="recipe in category.recipes" :key="recipe._id">
-        <li class="menu-item">
-          <router-link :to="{path: '/recipes/' + recipe._id}">{{ recipe.name }}</router-link>
-        </li>
-      </ol>
-    </li>
-    <li class="menu-item"><a href="#0">书信</a></li>
-  </ol>
-</nav>
+    <input id ="menu__toggle" type="checkbox" class='menu__toggle'/>
+    <label for="menu__toggle" class="menu__toggle-label">
+      <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
+        <path d='M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z' />
+      </svg>
+      <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
+        <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+      </svg>
+    </label>
+    <ol class='menu__content'>
+      <li class="menu-item"><a href="/">主页</a></li>
+      <li class="menu-item" v-for="category in categories" :key="category._id">
+        <a href="#0">{{category.name}}</a>
+        <ol class="sub-menu" v-for="recipe in category.recipes" :key="recipe._id">
+          <li class="menu-item">
+            <router-link :to="{path: '/recipes/' + recipe._id}">{{ recipe.name }}</router-link>
+          </li>
+        </ol>
+      </li>
+      <li class="menu-item"><a href="#0">书信</a></li>
+    </ol>
+  </nav>
 </template>
 
 <script>
@@ -34,6 +34,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+@media screen and (min-width: 768px) {
+  .menu {
+    width: 250px;
+  }
+}
+</style>
 
 <style lang="stylus" scoped>
 $width = 250px
@@ -77,7 +85,10 @@ a[href]
 
 .menu
   position relative
-  width $width
+  @media screen and (min-width: 768px) {
+    width $width
+  }
+  width 100px
 
   &__content
     color #ffffff
@@ -135,7 +146,7 @@ a[href]
         transform translateX(0)
         transition transform $duration cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color $duration
 
-        $colors = #f5ab35 #1e8bc3 #e26a6a
+        $colors = #f5ab35 #f2a5e0 #e26a6a
         for $item in (1..5)
           &:nth-of-type({$item})
 

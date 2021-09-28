@@ -1,10 +1,12 @@
 import express from 'express';
-import Category from '../models/category';
+import Category, { ICategory } from '../models/category';
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  Category.find({}, (err, categories) => {
+  Category.find({}).populate({
+    path:'recipes'
+  }).exec((err, categories) => {
     if (err) {
       res.json({ status: 'ok', payload: { message: err } });
     }
@@ -13,7 +15,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Category.findById(req.params.id, (err: any, category: typeof Category) => {
+  Category.findById(req.params.id).populate({
+    path:'recipes'
+  }).exec((err, category) => {
     if (err) {
       res.json({ status: 'ok', payload: { message: err } });
     }
@@ -22,7 +26,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  Category.create(req.body, (err: any, category: typeof Category) => {
+  Category.create(req.body, (err: any, category: ICategory) => {
     if (err) {
       res.json({ status: 'ok', payload: { message: err } });
     }

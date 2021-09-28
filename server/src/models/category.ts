@@ -1,13 +1,18 @@
 import { Schema, model } from 'mongoose';
+import Recipe from './recipe';
 
-interface Category {
+interface ICategory {
+  _id: string;
   name: string;
+  recipes: typeof Recipe[];
 }
 
-const schema = new Schema<Category>({
+const schema = new Schema<ICategory>({
   name: { type: String, required: true },
+  recipes: [{ type: Schema.Types.ObjectId, ref: 'Recipe' }],
 });
 
-const CategoryModel = model<Category>('Category', schema);
+const CategoryModel = model<ICategory>('Category', schema);
 
 export default CategoryModel;
+export { ICategory };

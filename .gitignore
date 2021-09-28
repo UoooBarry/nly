@@ -7,3 +7,5 @@ server/dist/
 server/.env
 server/nly-1.0.0.tgz
 artifacts/server.tgz
+artifacts/client.tgz
+client/dist/**

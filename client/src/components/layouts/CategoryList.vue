@@ -19,7 +19,7 @@
           </li>
         </ol>
       </li>
-      <li class="menu-item"><a href="#0">书信</a></li>
+      <li class="menu-item"><a href="/letters">书信</a></li>
     </ol>
   </nav>
 </template>

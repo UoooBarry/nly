@@ -1,6 +1,7 @@
 import express from 'express';
 import Recipe, { IRecipe } from '../models/recipe';
 import Category from '../models/category';
+import axios from 'axios';
 
 const router = express.Router();
 
@@ -19,6 +20,17 @@ router.get('/:id', (req, res) => {
       res.json({ status: 'ok', payload: { message: err } });
     }
     res.json({ status: 'ok', payload: { recipe } });
+  });
+});
+
+router.get('/:id/content', (req, res) => {
+  Recipe.findById(req.params.id, async (err: any, recipe: IRecipe) => {
+    if (err) {
+      res.json({ status: 'ok', payload: { message: err } });
+    }
+    const response = await axios.get(recipe.md_url);
+    const content = response.data
+    res.json({ status: 'ok', payload: content });
   });
 });
 

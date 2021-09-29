@@ -28,8 +28,7 @@ export default {
     const resposne = await getRecipe(this.$route.params.id);
     this.recipe = resposne.recipe;
     if(this.recipe.md_url)
-      this.recipeContent = await getRecipeContent(this.recipe.md_url);
-    console.log(this.recipe)
+      this.recipeContent = await getRecipeContent(this.$route.params.id);
   },
   methods: {
     async updateRate(star) {

@@ -1,29 +1,25 @@
-import axios from "axios";
 import service from "./service";
 
 const getAllRecipe = async () => {
   const response = await service.get("/recipes");
-  if (response.data.status !== 'ok') console.error("Contact barry!");
-  return response.data.payload;
+  return response
 }
 
 const getRecipe = async (id) => {
   const response = await service.get(`/recipes/${id}`);
-  if (response.data.status !== 'ok') console.error("Contact barry!");
-  return response.data.payload;
+  return response
 }
 
 const rateRecipe = async (id, rating) => {
   const response = await service.put(`/recipes/${id}`, {
     rating: rating
   });
-  if (response.data.status !== 'ok') console.error("Contact barry!");
-  return response.data.payload;
+  return response;
 }
 
-const getRecipeContent = async (mdUrl) => {
-  const response = await axios.get(mdUrl);
-  return response.data;
+const getRecipeContent = async (id) => {
+  const response = await service.get(`/recipes/${id}/content`)
+  return response;
 }
 
 export {

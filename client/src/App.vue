@@ -5,19 +5,21 @@
       <router-view :key="$route.fullPath"/>
     </template>
     <template v-else>
-      <h1>Loading...</h1>
+      <Loading />
     </template>
   </div>
 </template>
 
 <script>
+import Loading from '@/components/layouts/Loading'
 import {mapState} from 'vuex';
 import CategoryList from '@/components/layouts/CategoryList';
 
 export default {
   name: 'App',
   components: {
-    CategoryList
+    CategoryList,
+    Loading
   },
   computed: {
     ...mapState(['loading']),

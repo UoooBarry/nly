@@ -11,7 +11,7 @@ const getRecipe = async (id) => {
 }
 
 const rateRecipe = async (id, rating) => {
-  const response = await service.put(`/recipes/${id}`, {
+  const response = await service.post(`/recipes/${id}/rate`, {
     rating: rating
   });
   return response;

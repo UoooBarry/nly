@@ -54,4 +54,13 @@ router.put('/:id', verifyToken, (req, res) => {
   });
 });
 
+router.post('/:id/rate', (req, res) => {
+  Recipe.findByIdAndUpdate(req.params.id, {rating: req.body.rating}, (err: any, recipe: IRecipe) => {
+    if (err) {
+      res.json({ status: 'ok', payload: { message: err } });
+    }
+    res.json({ status: 'ok', payload: { recipe } });
+  });
+});
+
 export default router;

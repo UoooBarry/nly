@@ -33,7 +33,12 @@ export default {
   methods: {
     async updateRate(star) {
       const response = await rateRecipe(this.recipe._id, star);
-      this.recipe = response.newRecipe;
+      this.recipe = response.recipe;
+      this.$toast.open({
+        type: 'default',
+        message: '打分成功!',
+        position: 'top-right'
+      });
     }
   }
 }

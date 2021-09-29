@@ -146,7 +146,7 @@ a[href]
         transform translateX(0)
         transition transform $duration cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color $duration
 
-        $colors = #f5ab35 #f2a5e0 #e26a6a
+        $colors = #f5ab35 #f567a0 #e26a6a
         for $item in (1..5)
           &:nth-of-type({$item})
 

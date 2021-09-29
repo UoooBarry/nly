@@ -2,14 +2,9 @@
   <div class="rating">
     <ul class="list">
       <li @click="rate(star)" v-for="star in maxStars" :class="{ 'active': star <= stars }" :key="star.stars" class="star">
-      <font-awesome-icon :icon="star <= stars ? 'star' : 'star'"></font-awesome-icon>
+      <font-awesome-icon :icon="star <= stars ? 'heart' : 'heart'"></font-awesome-icon>
       </li>
     </ul>
-    <div v-if="hasCounter" class="info counter">
-      <span class="score-rating">{{ stars }}</span>
-      <span class="divider">/</span>
-      <span class="score-max">{{ maxStars }}</span>
-    </div>
   </div>
 </template>
 <script>
@@ -48,7 +43,7 @@ export default {
         margin: 0 20px 0 0;
         &:hover {
             .star {
-                color: #ffe100;
+                color: #eb2063;
             }
         }
         .star {
@@ -65,7 +60,7 @@ export default {
                 margin-left: 0;
             }
             &.active {
-                color: #ffe100;
+                color: #eb2063;
             }
         }
     }

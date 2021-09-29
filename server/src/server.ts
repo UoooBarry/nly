@@ -3,6 +3,8 @@ import cors from 'cors';
 import './config/database';
 import seed from './data/seed';
 
+import logger from 'morgan';
+
 import categoryRouter from './routes/category';
 import recipeRouter from './routes/recipe';
 import letterRouter from './routes/letter';
@@ -13,6 +15,7 @@ app.use(express.urlencoded({
   extended: false
 }));
 app.use(cors());
+app.get('env') === 'production' ? app.use(logger('combined')) : app.use(logger('dev'));
 
 const port = 3000; // default port to listen
 

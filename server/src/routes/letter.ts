@@ -1,5 +1,6 @@
 import express from 'express';
 import Letter, { ILetter } from '../models/letter';
+import verifyToken from '../middleware/apiTokenVerify';
 
 const router = express.Router();
 
@@ -38,5 +39,14 @@ router.put('/:id', (req, res) => {
     res.json({ status: 'ok', payload: { letter } });
   });
 });
+
+router.delete('/:id', verifyToken, (req, res) => {
+  Letter.findByIdAndRemove(req.params.id, (err: any, letter: ILetter) => {
+    if (err) {
+      res.json({ status: 'ok', payload: { message: err } });
+    }
+    res.json({ status: 'ok', payload: { letter } });
+  });
+})
 
 export default router;

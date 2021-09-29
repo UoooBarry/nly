@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div class="letters">
     <Letter :letter="letter" v-for="letter in letters" :key="letter._id"/>
     <div class='new-letter'>
+      <font-awesome-icon icon='leaf' />
       <input type="text" placeholder="署名" class='author-input' v-model="author">
       <div class='break'></div>
       <textarea name="" id="" cols="25" rows="5" class='letter-content' placeholder="信件" v-model="content"></textarea>
@@ -12,6 +13,10 @@
 </template>
 
 <style scoped>
+  .letters {
+    width: 100%;
+    align-self: start;
+  }
   .new-letter {
     position: fixed;
     bottom: 0;
@@ -28,8 +33,8 @@
     border-radius: 3px;
     border: 0.3px solid #aaaaaa;
     margin-bottom: 5px;
-    height: 1rem;
-    font-size: 0.8rem;
+    height: 1.1rem;
+    font-size: 1rem;
     font-weight: 400;
     border: none;
     background: #f3f3f3;

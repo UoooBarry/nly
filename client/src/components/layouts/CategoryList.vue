@@ -122,7 +122,7 @@ a[href]
     position fixed
 
     &:checked ~ .menu__toggle-label
-      background rgba(0, 0, 0, 0.65)
+      background rgba(0, 0, 0, 0.60)
       height 100vh
       left 0
       position fixed
@@ -146,7 +146,7 @@ a[href]
         transform translateX(0)
         transition transform $duration cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color $duration
 
-        $colors = #f5ab35 #f567a0 #e26a6a
+        $colors = #ffcdb2 #ffb4a2 #e5989b
         for $item in (1..5)
           &:nth-of-type({$item})
 

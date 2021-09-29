@@ -7,7 +7,19 @@
     client_dir: "/var/www/html"
     user: "root"
     systemd_dir: "/etc/systemd/system"
-  tasks:    
+  tasks:
+    - name: Delete existing server dist
+      become: yes
+      file:
+        path: "{{server_dir}}/server.tgz"
+        state: absent
+    
+    - name: Delete existing server folder
+      become: yes
+      file:
+        path: "{{server_dir}}/package"
+        state: absent
+
     - name: Upload server
       become: yes
       copy:

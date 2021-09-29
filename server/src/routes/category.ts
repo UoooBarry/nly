@@ -1,5 +1,6 @@
 import express from 'express';
 import Category, { ICategory } from '../models/category';
+import verifyToken from '../middleware/apiTokenVerify';
 
 const router = express.Router();
 
@@ -25,7 +26,7 @@ router.get('/:id', (req, res) => {
   });
 });
 
-router.post('/', (req, res) => {
+router.post('/', verifyToken, (req, res) => {
   Category.create(req.body, (err: any, category: ICategory) => {
     if (err) {
       res.json({ status: 'ok', payload: { message: err } });
@@ -34,7 +35,7 @@ router.post('/', (req, res) => {
   })
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', verifyToken, (req, res) => {
   Category.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, category) => {
     if (err) {
       res.json({ status: 'ok', payload: { message: err } });

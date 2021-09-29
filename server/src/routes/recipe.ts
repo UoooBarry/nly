@@ -1,4 +1,5 @@
 import express from 'express';
+import verifyToken from '../middleware/apiTokenVerify';
 import Recipe, { IRecipe } from '../models/recipe';
 import Category from '../models/category';
 import axios from 'axios';
@@ -34,7 +35,7 @@ router.get('/:id/content', (req, res) => {
   });
 });
 
-router.post('/', (req, res) => {
+router.post('/', verifyToken, (req, res) => {
   Recipe.create(req.body, async (err: any, recipe: IRecipe) => {
     if (err) {
       res.json({ status: 'ok', payload: { message: err } });
@@ -44,7 +45,7 @@ router.post('/', (req, res) => {
   });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', verifyToken, (req, res) => {
   Recipe.findByIdAndUpdate(req.params.id, req.body, (err: any, recipe: IRecipe) => {
     if (err) {
       res.json({ status: 'ok', payload: { message: err } });

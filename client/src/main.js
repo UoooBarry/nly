@@ -7,10 +7,10 @@ import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHeart, faLeaf } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faLeaf, faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faHeart, faLeaf)
+library.add(faHeart, faLeaf, faEnvelopeOpen)
 
 Vue.use(VueToast);
 Vue.component('font-awesome-icon', FontAwesomeIcon)

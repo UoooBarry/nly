@@ -2,8 +2,10 @@
   <div class="letters">
     <Letter :letter="letter" v-for="letter in letters" :key="letter._id"/>
     <div class='new-letter'>
-      <font-awesome-icon icon='leaf' />
       <input type="text" placeholder="署名" class='author-input' v-model="author">
+      <div>
+        <font-awesome-icon icon='leaf'/>
+      </div>
       <div class='break'></div>
       <textarea name="" id="" cols="25" rows="5" class='letter-content' placeholder="信件" v-model="content"></textarea>
       <div class='h-break'></div>
@@ -141,7 +143,7 @@ export default {
         const response = await newLetter({author: this.author, content: this.content});
         this.letters.unshift(response.letter);
       }
-    }
+    },
   }
 
 }

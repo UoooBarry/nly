@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <template v-if="!loading">
-      <CategoryList />
+      <CategoryList :isUnlocked="isUnlocked" />
       <router-view :key="$route.fullPath"/>
     </template>
     <template v-else>
@@ -23,6 +23,7 @@ export default {
   },
   computed: {
     ...mapState(['loading']),
+    ...mapState('counter', ['count', 'isUnlocked'])
   }
 }
 </script>

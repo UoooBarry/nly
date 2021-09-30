@@ -19,7 +19,7 @@
           </li>
         </ol>
       </li>
-      <li class="menu-item"><a href="/letters">书信</a></li>
+      <li class="menu-item" v-if="isUnlocked"><a href="/letters">书信</a></li>
     </ol>
   </nav>
 </template>
@@ -27,6 +27,7 @@
 <script>
 export default {
   name: 'CategoryList',
+  props: ['isUnlocked'],  
   computed: {
     categories() {
       return this.$store.getters.categories;

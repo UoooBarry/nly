@@ -2,7 +2,7 @@
   <div id="app">
     <template v-if="!loading">
       <CategoryList :isUnlocked="isUnlocked" />
-      <router-view :key="$route.fullPath"/>
+      <router-view :key="$route.fullPath" />
     </template>
     <template v-else>
       <Loading />
@@ -11,21 +11,21 @@
 </template>
 
 <script>
-import Loading from '@/components/layouts/Loading'
-import {mapState} from 'vuex';
-import CategoryList from '@/components/layouts/CategoryList';
+import Loading from "@/components/layouts/Loading";
+import { mapState } from "vuex";
+import CategoryList from "@/components/layouts/CategoryList";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     CategoryList,
-    Loading
+    Loading,
   },
   computed: {
-    ...mapState(['loading']),
-    ...mapState('counter', ['count', 'isUnlocked'])
-  }
-}
+    ...mapState(["loading"]),
+    ...mapState("counter", ["count", "isUnlocked"]),
+  },
+};
 </script>
 
 <style>

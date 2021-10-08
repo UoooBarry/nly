@@ -10,17 +10,12 @@
 </template>
 
 <script>
-import {mapState} from 'vuex';
 export default {
   name: 'Home',
   methods: {
     iconClick() {
       this.$store.dispatch('counter/addCount');
     }
-  },
-  computed: {
-    ...mapState('counter', ['count']),
   }
 }
 </script>
-

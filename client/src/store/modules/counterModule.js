@@ -7,9 +7,14 @@ const counterModule = {
   mutations: {
     addCount(state) {
       state.count += 1;
-      if(state.count == 30) {
+      if(state.count == 3) {
         state.isUnlocked = true
       }
+    }
+  },
+  getters: {
+    isUnlocked: (state) => {
+      return state.isUnlocked
     }
   },
   actions: {

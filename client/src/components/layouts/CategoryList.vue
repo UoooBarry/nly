@@ -10,7 +10,7 @@
       </svg>
     </label>
     <ol class='menu__content'>
-      <li class="menu-item"><a href="/">主页</a></li>
+      <li class="menu-item"><router-link :to="{path: '/'}">主页</router-link></li>
       <li class="menu-item" v-for="category in categories" :key="category._id">
         <a href="#0">{{category.name}}</a>
         <ol class="sub-menu" v-for="recipe in category.recipes" :key="recipe._id">
@@ -19,7 +19,7 @@
           </li>
         </ol>
       </li>
-      <li class="menu-item" v-if="isUnlocked"><a href="/letters">书信</a></li>
+      <li class="menu-item" v-if="isUnlocked"><router-link :to="{path: '/letters'}">书信</router-link></li>
     </ol>
   </nav>
 </template>
